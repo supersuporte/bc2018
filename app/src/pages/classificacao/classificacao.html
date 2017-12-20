@@ -6,8 +6,8 @@
 
 <ion-content padding>
     <ion-list>
-      <ion-item *ngFor="let item of items">
-        <h2>{{ item }}</h2>
+      <ion-item *ngFor="let user of classificacoes">
+        <h2>{{ user.getNome() }}</h2>
       </ion-item>
     </ion-list>
 </ion-content>

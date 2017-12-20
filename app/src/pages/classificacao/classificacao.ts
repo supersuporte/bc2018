@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClassificacaoWsProvider } from '../../providers/classificacao-ws/classificacao-ws';
+import { Classificacao } from '../../models/classificacao';
 
 @IonicPage()
 @Component({
@@ -10,34 +11,38 @@ import { ClassificacaoWsProvider } from '../../providers/classificacao-ws/classi
 })
 export class ClassificacaoPage {
 
+  public classificacoes = new Array<Classificacao>();
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private classificacaoWsProvider: ClassificacaoWsProvider) {
-    this.ionViewDidLoad();
   }
 
-  items = [
-      '1 Pokémon Yellow',
-      '2 Super Metroid',
-      '3 Mega Man X',
-    ];
-
-
-  itemSelected(item: string) {
-      console.log("Selected Item", item);
-  }
-
-  ionViewDidLoad() {
-    this.classificacaoWsProvider.getClassificacao().subscribe (
+  private getClassificacao(): void {
+    this.classificacaoWsProvider.getClassificacaoFromWS().subscribe (
       data => {
           const response = (data as any);
           const objeto_retorno = JSON.parse(response._body);
-          console.log(objeto_retorno);
+          this.classificacoes = this.parseJsonToObj(objeto_retorno.results);
       }, error => {
           console.log(error);
       }
     )
+  }
+
+  private parseJsonToObj(json: any): Array<Classificacao> {
+    let classificacoes = new Array<Classificacao>();
+    for (let j of json) {
+      let c = new Classificacao();
+      c.setNome(j.original_title);
+      classificacoes.push(c);
+    }
+    return classificacoes;
+  }
+
+  ionViewDidLoad() {
+    this.getClassificacao();
   }
 
 }
