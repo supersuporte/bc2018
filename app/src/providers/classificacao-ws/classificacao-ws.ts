@@ -3,8 +3,6 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 
-import { Classificacao } from '../../models/classificacao';
-
 @Injectable()
 export class ClassificacaoWsProvider {
 

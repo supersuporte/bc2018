@@ -1,5 +1,15 @@
 page-classificacao {
-    .ion-list div {
-    }
-
+  .ion-note-header {
+    color: #333333;
+  }
+  .ion-note-destaque-default {
+    background-color: #000000;
+  }
+  .ion-note-destaque {
+    background-color: #336699;
+  }
+  .ion-note {
+    color: #006633;
+    font-weight: bold;
+  }
 }

@@ -4,10 +4,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     <ion-list>
-      <ion-item *ngFor="let user of classificacoes">
-        <h2>{{ user.getNome() }}</h2>
+      <ion-item-divider color="light">
+        <div class="ion-note-header">Participante</div>
+        <ion-note item-end><div class="ion-note-header">Pontos</div></ion-note>
+      </ion-item-divider>
+      <ion-item *ngFor="let classificacao of classificacoes">
+        <h2>{{ classificacao.getPosicao() + "&ordm;&nbsp;&nbsp;" + classificacao.getNome() }}</h2>
+        <ion-note item-end><div class="ion-note">{{classificacao.getPontos()}}</div></ion-note>
       </ion-item>
     </ion-list>
 </ion-content>

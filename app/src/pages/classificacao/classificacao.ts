@@ -33,12 +33,24 @@ export class ClassificacaoPage {
 
   private parseJsonToObj(json: any): Array<Classificacao> {
     let classificacoes = new Array<Classificacao>();
+    let indice = 1;
     for (let j of json) {
       let c = new Classificacao();
       c.setNome(j.original_title);
+      c.setPosicao(indice);
+      c.setPontos(400-(indice*10));
       classificacoes.push(c);
+      indice++;
     }
     return classificacoes;
+  }
+
+  public getClasseDestaque(classificacao: Classificacao): string {
+    if (classificacao.getPosicao() <= 3) {
+      return "ion-note-destaque";
+    } else {
+      return "ion-note-destaque-default";
+    }
   }
 
   ionViewDidLoad() {

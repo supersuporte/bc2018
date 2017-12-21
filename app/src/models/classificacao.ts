@@ -2,6 +2,7 @@ export class Classificacao {
 
   private posicao: number;
   private nome: string;
+  private pontos: number;
 
   public getPosicao(): number {
     return this.posicao;
@@ -17,5 +18,13 @@ export class Classificacao {
 
   public setNome(nome: string): void {
     this.nome = nome;
+  }
+
+  public getPontos(): number {
+    return this.pontos;
+  }
+
+  public setPontos(pontos: number): void {
+    this.pontos = pontos;
   }
 }
