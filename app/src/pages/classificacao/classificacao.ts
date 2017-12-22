@@ -45,11 +45,19 @@ export class ClassificacaoPage {
     return classificacoes;
   }
 
-  public getClasseDestaque(classificacao: Classificacao): string {
+  public getClassePosicao(classificacao: Classificacao): string {
     if (classificacao.getPosicao() <= 3) {
-      return "ion-note-destaque";
+      return "posicao-destaque";
     } else {
-      return "ion-note-destaque-default";
+      return "posicao-default";
+    }
+  }
+
+  public getClasseNome(classificacao: Classificacao): string {
+    if (classificacao.getPosicao() <= 3) {
+      return "nome-destaque";
+    } else {
+      return "nome-default";
     }
   }
 

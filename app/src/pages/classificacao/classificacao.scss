@@ -2,11 +2,17 @@ page-classificacao {
   .ion-note-header {
     color: #333333;
   }
-  .ion-note-destaque-default {
-    background-color: #000000;
+  .posicao-default {
+    font-weight: bold;
   }
-  .ion-note-destaque {
-    background-color: #336699;
+  .posicao-destaque {
+    color: #0b4daf;
+    font-weight: bold;
+  }
+  .nome-default {
+  }
+  .nome-destaque {
+    color: #cc290f;
   }
   .ion-note {
     color: #006633;
