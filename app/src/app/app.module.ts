@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { ClassificacaoPage } from '../pages/classificacao/classificacao';
+import { JogosPage } from '../pages/jogos/jogos';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,6 +16,7 @@ import { ClassificacaoWsProvider } from '../providers/classificacao-ws/classific
   declarations: [
     MyApp,
     ClassificacaoPage,
+    JogosPage,
     TabsPage
   ],
   imports: [
@@ -26,6 +28,7 @@ import { ClassificacaoWsProvider } from '../providers/classificacao-ws/classific
   entryComponents: [
     MyApp,
     ClassificacaoPage,
+    JogosPage,
     TabsPage
   ],
   providers: [
