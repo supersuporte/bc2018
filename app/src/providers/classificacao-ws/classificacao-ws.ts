@@ -6,13 +6,14 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class ClassificacaoWsProvider {
 
-  url = 'https://api.themoviedb.org/3/movie/popular?page=1&api_key=51e4e9d52532d389174b5252cd99d33d';
+  url = 'classificacao.json';
 
   constructor(public http: Http) {
     console.log('Hello ClassificacaoWsProvider Provider');
   }
 
   public getClassificacaoFromWS(): Observable<Response> {
+    console.log(this.url);
     return this.http.get(this.url);
   }
 

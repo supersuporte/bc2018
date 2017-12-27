@@ -33,14 +33,12 @@ export class ClassificacaoPage {
 
   private parseJsonToObj(json: any): Array<Classificacao> {
     let classificacoes = new Array<Classificacao>();
-    let indice = 1;
     for (let j of json) {
       let c = new Classificacao();
-      c.setNome(j.original_title);
-      c.setPosicao(indice);
-      c.setPontos(400-(indice*10));
+      c.setPosicao(j.posicao);
+      c.setNome(j.nome);
+      c.setPontos(j.pontos);
       classificacoes.push(c);
-      indice++;
     }
     return classificacoes;
   }

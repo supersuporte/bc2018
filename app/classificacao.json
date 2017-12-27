@@ -1,0 +1,28 @@
+{"results": [
+    {
+      "posicao": 1,
+      "nome": "Carlos Gomes",
+      "pontos": 400
+    },
+    {
+      "posicao": 2,
+      "nome": "Pedro Gomes",
+      "pontos": 390
+    },
+    {
+      "posicao": 3,
+      "nome": "Cida Gomes",
+      "pontos": 380
+    },
+    {
+      "posicao": 4,
+      "nome": "Amanda",
+      "pontos": 370
+    },
+    {
+      "posicao": 5,
+      "nome": "Joyce Gomes",
+      "pontos": 360
+    }
+  ]
+}
