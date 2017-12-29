@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-item-divider color="light" class="fase">FASE DE GRUPOS</ion-item-divider>
+  <div *ngFor="let jogo of jogos">
+    <ion-item-divider color="light" class="fase">{{ jogo.getFase().getDescricao() }}</ion-item-divider>
     <ion-item-group>
       <ion-item-divider color="light" class="data">14/06 - QUINTA</ion-item-divider>
       <ion-item class="confronto">
@@ -34,4 +35,5 @@
         xxxx
       </ion-item>
     </ion-item-group>
+  </div>
 </ion-content>

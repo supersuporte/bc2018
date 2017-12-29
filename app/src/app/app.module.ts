@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { ClassificacaoWsProvider } from '../providers/classificacao-ws/classificacao-ws';
+import { JogosWsProvider } from '../providers/jogos-ws/jogos-ws';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ClassificacaoWsProvider } from '../providers/classificacao-ws/classific
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ClassificacaoWsProvider
+    ClassificacaoWsProvider,
+    JogosWsProvider
   ]
 })
 export class AppModule {}

@@ -4,15 +4,15 @@ import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 
 @Injectable()
-export class ClassificacaoWsProvider {
+export class JogosWsProvider {
 
-  url = 'classificacao.json';
+  url = 'jogos.json';
 
   constructor(public http: Http) {
-    console.log('Hello ClassificacaoWsProvider Provider');
+    console.log('Hello JogosWsProvider Provider');
   }
 
-  public getClassificacaoFromWS(): Observable<Response> {
+  public getJogosFromWS(): Observable<Response> {
     return this.http.get(this.url);
   }
 

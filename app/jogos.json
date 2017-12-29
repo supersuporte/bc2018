@@ -1,0 +1,45 @@
+{"results": [
+    {
+      "fase": {
+        "codigo": 1,
+        "descricao": "FASE DE GRUPOS"
+      },
+      "data": "14/06/2018",
+      "dia": "QUINTA",
+      "hora": "17:00",
+      "local": "MOSCOU",
+      "equipe1": {
+        "nome": "Brasil",
+        "gols": 3,
+        "palpite": 2
+      },
+      "equipe2": {
+        "nome": "Arábia Saudita",
+        "gols": 1,
+        "palpite": 0
+      },
+      "pontos": 40
+    },
+    {
+      "fase": {
+        "codigo": 1,
+        "descricao": "FASE DE GRUPOS"
+      },
+      "data": "14/06/2018",
+      "dia": "QUINTA",
+      "hora": "21:00",
+      "local": "SOUTH MOSCOU",
+      "equipe1": {
+        "nome": "Argentina",
+        "gols": null,
+        "palpite": null
+      },
+      "equipe2": {
+        "nome": "Rússia",
+        "gols": null,
+        "palpite": null
+      },
+      "pontos": null
+    }
+  ]
+}
