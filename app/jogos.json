@@ -4,17 +4,26 @@
         "codigo": 1,
         "descricao": "FASE DE GRUPOS"
       },
-      "data": "14/06/2018",
+      "data": "14/06",
       "dia": "QUINTA",
       "hora": "17:00",
-      "local": "MOSCOU",
-      "equipe1": {
-        "nome": "Brasil",
+      "cidade": {
+        "codigo": 1,
+        "descricao": "MOSCOU"
+      },
+      "adversario1": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Brasil"
+        },
         "gols": 3,
         "palpite": 2
       },
-      "equipe2": {
-        "nome": "Arábia Saudita",
+      "adversario2": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Arábia Saudita"
+        },
         "gols": 1,
         "palpite": 0
       },
@@ -25,21 +34,90 @@
         "codigo": 1,
         "descricao": "FASE DE GRUPOS"
       },
-      "data": "14/06/2018",
+      "data": "14/06",
       "dia": "QUINTA",
       "hora": "21:00",
-      "local": "SOUTH MOSCOU",
-      "equipe1": {
-        "nome": "Argentina",
+      "cidade": {
+        "codigo": 2,
+        "descricao": "SOUTH MOSCOU"
+      },
+      "adversario1": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Argentina"
+        },
         "gols": null,
         "palpite": null
       },
-      "equipe2": {
-        "nome": "Rússia",
+      "adversario2": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Rússia"
+        },
         "gols": null,
         "palpite": null
       },
       "pontos": null
+    },
+    {
+      "fase": {
+        "codigo": 1,
+        "descricao": "FASE DE GRUPOS"
+      },
+      "data": "15/06",
+      "dia": "QUINTA",
+      "hora": "21:00",
+      "cidade": {
+        "codigo": 2,
+        "descricao": "SOUTH MOSCOU"
+      },
+      "adversario1": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Canadá"
+        },
+        "gols": null,
+        "palpite": null
+      },
+      "adversario2": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Argélia"
+        },
+        "gols": null,
+        "palpite": null
+      },
+      "pontos": null
+    },
+    {
+      "fase": {
+        "codigo": 2,
+        "descricao": "OITAVAS"
+      },
+      "data": "18/06",
+      "dia": "SEXTA",
+      "hora": "17:00",
+      "cidade": {
+        "codigo": 1,
+        "descricao": "MOSCOU"
+      },
+      "adversario1": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Brasil"
+        },
+        "gols": 3,
+        "palpite": 2
+      },
+      "adversario2": {
+        "equipe": {
+          "codigo": 1,
+          "descricao": "Arábia Saudita"
+        },
+        "gols": 1,
+        "palpite": 0
+      },
+      "pontos": 40
     }
   ]
 }

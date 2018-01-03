@@ -5,35 +5,41 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let jogo of jogos">
-    <ion-item-divider color="light" class="fase">{{ jogo.getFase().getDescricao() }}</ion-item-divider>
-    <ion-item-group>
-      <ion-item-divider color="light" class="data">14/06 - QUINTA</ion-item-divider>
+  <ion-item-group>
+    <div *ngFor="let jogo of getJogos()">
+
+      <div *ngIf="(isFaseRendered(jogo, getJogoAnterior()))" >
+        <ion-item-divider color="light" class="fase">{{ jogo.getFase().getDescricao() }}</ion-item-divider>
+      </div>
+
+      <div *ngIf="(isDataRendered(jogo, getJogoAnterior()))" >
+        <ion-item-divider color="light" class="data">{{ jogo.getData() + " - " + jogo.getDia() }}</ion-item-divider>
+      </div>
+
       <ion-item class="confronto">
-        <div class="full">
-          <div class="local">17:00 MOSCOU</div>
+        <div class="full {{ getBorderClass(jogo, getJogoAnterior()) }}">
+          <div class="local">{{ jogo.getHora() + " " + jogo.getCidade().getDescricao() }}</div>
           <div class="versus">X</div>
           <div class="pontos">
-            <div class="numero">40</div>
+            <div class="numero">{{ jogo.getPontos() }}</div>
             <div class="label">PONTOS</div>
           </div>
           <div class="equipe-01">
-            <div class="flag"><img src="../../assets/flags/xxx.png"></div>
-            <div class="nome">Brasil</div>
-            <div class="placar">3</div>
-            <div class="palpite">2</div>
+            <div class="flag"><img src="{{ getFlag(jogo.getAdversario1().getEquipe()) }}"></div>
+            <div class="nome">{{ jogo.getAdversario1().getEquipe().getDescricao() }}</div>
+            <div class="placar">{{ jogo.getAdversario1().getGols() }}</div>
+            <div class="palpite">{{ jogo.getAdversario1().getPalpite() }}</div>
           </div>
           <div class="equipe-02">
-            <div class="flag"><img src="../../assets/flags/xxx.png"></div>
-            <div class="nome">Arábia Saudita</div>
-            <div class="placar">1</div>
-            <div class="palpite">0</div>
+            <div class="flag"><img src="{{ getFlag(jogo.getAdversario2().getEquipe()) }}"></div>
+            <div class="nome">{{ jogo.getAdversario2().getEquipe().getDescricao() }}</div>
+            <div class="placar">{{ jogo.getAdversario2().getGols() }}</div>
+            <div class="palpite">{{ jogo.getAdversario2().getPalpite() }}</div>
           </div>
         </div>
       </ion-item>
-      <ion-item>
-        xxxx
-      </ion-item>
-    </ion-item-group>
-  </div>
+
+      {{ setJogoAnterior(jogo) }}
+    </div>
+  </ion-item-group>
 </ion-content>
