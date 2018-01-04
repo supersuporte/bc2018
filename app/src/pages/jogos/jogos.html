@@ -16,13 +16,18 @@
         <ion-item-divider color="light" class="data">{{ jogo.getData() + " - " + jogo.getDia() }}</ion-item-divider>
       </div>
 
-      <ion-item class="confronto">
+      <a ion-item class="confronto" (click)="showModalPalpite()">
         <div class="full {{ getBorderClass(jogo, getJogoAnterior()) }}">
           <div class="local">{{ jogo.getHora() + " " + jogo.getCidade().getDescricao() }}</div>
           <div class="versus">X</div>
-          <div class="pontos">
-            <div class="numero">{{ jogo.getPontos() }}</div>
-            <div class="label">PONTOS</div>
+          <div *ngIf="(isPalpiteRendered(jogo))">
+            <div class="palpite">PALPITE</div>
+          </div>
+          <div *ngIf="(isPontosRendered(jogo))">
+            <div class="pontos">
+              <div class="numero">{{ jogo.getPontos() }}</div>
+              <div class="label">PONTOS</div>
+            </div>
           </div>
           <div class="equipe-01">
             <div class="flag"><img src="{{ getFlag(jogo.getAdversario1().getEquipe()) }}"></div>
@@ -37,7 +42,7 @@
             <div class="palpite">{{ jogo.getAdversario2().getPalpite() }}</div>
           </div>
         </div>
-      </ion-item>
+      </a>
 
       {{ setJogoAnterior(jogo) }}
     </div>

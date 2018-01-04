@@ -47,7 +47,7 @@
           "descricao": "Argentina"
         },
         "gols": null,
-        "palpite": null
+        "palpite": 1
       },
       "adversario2": {
         "equipe": {
@@ -55,7 +55,7 @@
           "descricao": "Rússia"
         },
         "gols": null,
-        "palpite": null
+        "palpite": 0
       },
       "pontos": null
     },

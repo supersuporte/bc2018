@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Utils } from '../../services/utils';
 import { JogosWsProvider } from '../../providers/jogos-ws/jogos-ws';
+import { Utils } from '../../services/utils';
+import { JogoService } from '../../services/jogo-service';
 import { Jogo } from '../../models/jogo';
 import { Fase } from '../../models/fase';
 import { Cidade } from '../../models/cidade';
@@ -18,6 +19,7 @@ export class JogosPage {
 
   private jogos = new Array<Jogo>();
   private utils = new Utils();
+  private jogoService = new JogoService();
   private jogoAnterior = new Jogo();
 
   constructor(
@@ -31,55 +33,11 @@ export class JogosPage {
       data => {
           const response = (data as any);
           const objeto_retorno = JSON.parse(response._body);
-          this.jogos = this.parseJsonToObj(objeto_retorno.results);
+          this.jogos = this.jogoService.parseJsonToObj(objeto_retorno.results);
       }, error => {
           console.log(error);
       }
     )
-  }
-
-  private parseJsonToObj(json: any): Array<Jogo> {
-    let jogos = new Array<Jogo>();
-    for (let js of json) {
-      let jogo = new Jogo();
-      jogo.setData(js.data);
-      jogo.setDia(js.dia);
-      jogo.setHora(js.hora);
-      jogo.setPontos(js.pontos);
-
-      let fase = new Fase();
-      fase.setCodigo(js.fase.codigo);
-      fase.setDescricao(js.fase.descricao);
-      jogo.setFase(fase);
-
-      let cidade = new Cidade();
-      cidade.setCodigo(js.cidade.codigo);
-      cidade.setDescricao(js.cidade.descricao);
-      jogo.setCidade(cidade);
-
-      let equipe = new Equipe();
-      equipe.setCodigo(js.adversario1.equipe.codigo);
-      equipe.setDescricao(js.adversario1.equipe.descricao);
-
-      let adversario = new Adversario();
-      adversario.setEquipe(equipe);
-      adversario.setGols(js.adversario1.gols);
-      adversario.setPalpite(js.adversario1.palpite);
-      jogo.setAdversario1(adversario);
-
-      equipe = new Equipe();
-      equipe.setCodigo(js.adversario2.equipe.codigo);
-      equipe.setDescricao(js.adversario2.equipe.descricao);
-
-      adversario = new Adversario();
-      adversario.setEquipe(equipe);
-      adversario.setGols(js.adversario2.gols);
-      adversario.setPalpite(js.adversario2.palpite);
-      jogo.setAdversario2(adversario);
-
-      jogos.push(jogo);
-    }
-    return jogos;
   }
 
   public getFlag(equipe: Equipe): string {
@@ -100,6 +58,14 @@ export class JogosPage {
     } else {
       return true;
     }
+  }
+
+  public isPalpiteRendered(jogo: Jogo): boolean {
+    return jogo.getAdversario1().getPalpite() == null ? false : true;
+  }
+
+  public isPontosRendered(jogo: Jogo): boolean {
+    return jogo.getPontos() == null ? false : true;
   }
 
   public getBorderClass(jogo: Jogo, jogoAnterior: Jogo): string {
