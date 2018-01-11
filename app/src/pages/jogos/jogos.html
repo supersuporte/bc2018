@@ -16,7 +16,7 @@
         <ion-item-divider color="light" class="data">{{ jogo.getData() + " - " + jogo.getDia() }}</ion-item-divider>
       </div>
 
-      <a ion-item class="confronto" (click)="showModalPalpite()">
+      <a ion-item class="confronto" (click)="showModalPalpite(jogo)">
         <div class="full {{ getBorderClass(jogo, getJogoAnterior()) }}">
           <div class="local">{{ jogo.getHora() + " " + jogo.getCidade().getDescricao() }}</div>
           <div class="versus">X</div>

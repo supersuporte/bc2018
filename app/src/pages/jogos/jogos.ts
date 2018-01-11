@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { JogosWsProvider } from '../../providers/jogos-ws/jogos-ws';
+import { PalpitePage } from '../../pages/palpite/palpite';
 import { Utils } from '../../services/utils';
 import { JogoService } from '../../services/jogo-service';
 import { Jogo } from '../../models/jogo';
-import { Fase } from '../../models/fase';
-import { Cidade } from '../../models/cidade';
-import { Adversario } from '../../models/adversario';
 import { Equipe } from '../../models/equipe';
 
 @IonicPage()
@@ -25,7 +23,13 @@ export class JogosPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     private jogosWsProvider: JogosWsProvider) {
+  }
+
+  public showModalPalpite(jogo: Jogo): void {
+    let modal = this.modalCtrl.create(PalpitePage, jogo);
+    modal.present();
   }
 
   private loadJogos(): void {

@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 
 import { ClassificacaoPage } from '../pages/classificacao/classificacao';
 import { JogosPage } from '../pages/jogos/jogos';
+import { PalpitePage } from '../pages/palpite/palpite';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +19,7 @@ import { JogosWsProvider } from '../providers/jogos-ws/jogos-ws';
     MyApp,
     ClassificacaoPage,
     JogosPage,
+    PalpitePage,
     TabsPage
   ],
   imports: [
@@ -30,6 +32,7 @@ import { JogosWsProvider } from '../providers/jogos-ws/jogos-ws';
     MyApp,
     ClassificacaoPage,
     JogosPage,
+    PalpitePage,
     TabsPage
   ],
   providers: [
