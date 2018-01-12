@@ -1,3 +1,126 @@
 page-palpite {
+  .botoes-equipe-01 {
+    position: absolute;
+    top: 100px;
+    left: 26px;
+    width: 110px;
+    height: 50px;
+  }
+  .botoes-equipe-01 .add {
+    position: absolute;
+    right: 0px;
+  }
+  .botoes-equipe-01 .remove {
+    position: absolute;
+    left: 0px;
+  }
+  .botoes-equipe-02 {
+    position: absolute;
+    top: 100px;
+    right: 26px;
+    width: 110px;
+    height: 50px;
+  }
+  .botoes-equipe-02 .add {
+    position: absolute;
+    right: 0px;
+  }
+  .botoes-equipe-02 .remove {
+    position: absolute;
+    left: 0px;
+  }
+  .salvar {
+    position: absolute;
+    top: 170px;
+    width: 100%;
+    padding: 20px;
+  }
 
+  .confronto {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    padding: 0px;
+  }
+  .confronto .full {
+    position: relative;
+    top: 0px;
+    width: 340px;
+    height: 100px;
+    text-align: center;
+    padding: 0px;
+    margin: 0 auto;
+  }
+  .full .local {
+    position: absolute;
+    width: 100%;
+    top: 5px;
+    font-size: 12px;
+  }
+  .full .versus {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: 30px;
+  }
+  .full .equipe-01 {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    width: 142px;
+    height: 67px;
+  }
+  .full .equipe-01 .flag {
+    position: absolute;
+    left: 30px;
+    width: 60px;
+    height: 40px;
+  }
+  .full .equipe-01 .nome {
+    position: absolute;
+    top: 45px;
+    width: 120px;
+    height: 20px;
+    left: 0px;
+  }
+  .full .equipe-01 .placar {
+    position: absolute;
+    top: 0px;
+    left: 120px;
+    width: 20px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #0b4daf;
+  }
+  .full .equipe-02 {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 142px;
+    height: 67px;
+  }
+  .full .equipe-02 .flag {
+    position: absolute;
+    right: 30px;
+    width: 60px;
+    height: 40px;
+  }
+  .full .equipe-02 .nome {
+    position: absolute;
+    top: 45px;
+    width: 120px;
+    height: 20px;
+    right: 0px;
+  }
+  .full .equipe-02 .placar {
+    position: absolute;
+    top: 0px;
+    right: 120px;
+    width: 20px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #0b4daf;
+  }
 }

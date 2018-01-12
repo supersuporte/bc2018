@@ -28,7 +28,7 @@ export class JogosPage {
   }
 
   public showModalPalpite(jogo: Jogo): void {
-    let modal = this.modalCtrl.create(PalpitePage, jogo);
+    let modal = this.modalCtrl.create(PalpitePage, {jogoSelecionado: jogo});
     modal.present();
   }
 
