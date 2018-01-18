@@ -15,27 +15,27 @@
 <ion-content>
   <div class="confronto">
     <div class="full">
-      <div class="local">{{ jogo.getHora() + " " + jogo.getCidade().getDescricao() }}</div>
+      <div class="local">{{ getJogo().getHora() + " " + getJogo().getCidade().getDescricao() }}</div>
       <div class="versus">X</div>
       <div class="equipe-01">
-        <div class="flag"><img src="{{ getFlag(jogo.getAdversario1().getEquipe()) }}"></div>
-        <div class="nome">{{ jogo.getAdversario1().getEquipe().getDescricao() }}</div>
+        <div class="flag"><img src="{{ getFlag(getJogo().getAdversario1().getEquipe()) }}"></div>
+        <div class="nome">{{ getJogo().getAdversario1().getEquipe().getDescricao() }}</div>
         <div class="placar">{{ getPalpite01() }}</div>
       </div>
       <div class="equipe-02">
-        <div class="flag"><img src="{{ getFlag(jogo.getAdversario2().getEquipe()) }}"></div>
-        <div class="nome">{{ jogo.getAdversario2().getEquipe().getDescricao() }}</div>
+        <div class="flag"><img src="{{ getFlag(getJogo().getAdversario2().getEquipe()) }}"></div>
+        <div class="nome">{{ getJogo().getAdversario2().getEquipe().getDescricao() }}</div>
         <div class="placar">{{ getPalpite02() }}</div>
       </div>
 
       <div class="botoes-equipe-01">
         <div class="remove">
-          <button ion-button clear icon-only (click)="removeGol(jogo.getAdversario1())">
+          <button ion-button clear icon-only (click)="removeGol(getJogo().getAdversario1())">
             <ion-icon name='remove-circle'></ion-icon>
           </button>
         </div>
         <div class="add">
-          <button ion-button clear icon-only (click)="addGol(jogo.getAdversario1())">
+          <button ion-button clear icon-only (click)="addGol(getJogo().getAdversario1())">
             <ion-icon name='add-circle'></ion-icon>
           </button>
         </div>
@@ -43,12 +43,12 @@
 
       <div class="botoes-equipe-02">
         <div class="remove">
-          <button ion-button clear icon-only (click)="removeGol(jogo.getAdversario2())">
+          <button ion-button clear icon-only (click)="removeGol(getJogo().getAdversario2())">
             <ion-icon name='remove-circle'></ion-icon>
           </button>
         </div>
         <div class="add">
-          <button ion-button clear icon-only (click)="addGol(jogo.getAdversario2())">
+          <button ion-button clear icon-only (click)="addGol(getJogo().getAdversario2())">
             <ion-icon name='add-circle'></ion-icon>
           </button>
         </div>
@@ -58,8 +58,7 @@
   </div>
 
   <div class="salvar">
-    <button ion-button block icon-left>
-      <ion-icon name='thumbs-up'></ion-icon>
+    <button ion-button block icon-left (click)="salvaPalpite()">
       Salvar Palpite
     </button>
   </div>

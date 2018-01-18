@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { Utils } from '../../services/utils';
+import { PalpiteValidator } from '../../validator/palpite-validator';
 import { Jogo } from '../../models/jogo';
 import { Equipe } from '../../models/equipe';
 import { Adversario } from '../../models/adversario';
@@ -12,15 +13,17 @@ import { Adversario } from '../../models/adversario';
 })
 export class PalpitePage {
 
-  public jogo = new Jogo();
+  private jogo = new Jogo();
   private utils = new Utils();
-  private palpite01 = 0;
-  private palpite02 = 0;
+  private palpiteValidator = new PalpiteValidator();
+  private palpite01;
+  private palpite02;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    public alertCtrl: AlertController) {
       this.jogo = this.navParams.get('jogoSelecionado');
       this.setPalpite01(this.jogo.getAdversario1().getPalpite());
       this.setPalpite02(this.jogo.getAdversario2().getPalpite());
@@ -54,6 +57,24 @@ export class PalpitePage {
     }
   }
 
+  public salvaPalpite(): void {
+    if (this.palpiteValidator.isPalpiteValido(this.palpite01, this.palpite02)) {
+      this.jogo.getAdversario1().setPalpite(this.palpite01);
+      this.jogo.getAdversario2().setPalpite(this.palpite02);
+      this.viewCtrl.dismiss();
+    } else {
+      (this.palpiteValidator.alertaPalpiteInvalido(this.alertCtrl)).present();
+    }
+  }
+
+
+  public getJogo(): Jogo {
+    return this.jogo;
+  }
+
+  public setJogo(jogo: Jogo): void {
+    this.jogo = jogo;
+  }
 
   public getPalpite01(): number {
     return this.palpite01;

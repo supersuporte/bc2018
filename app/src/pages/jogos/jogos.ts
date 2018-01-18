@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { JogosWsProvider } from '../../providers/jogos-ws/jogos-ws';
 import { PalpitePage } from '../../pages/palpite/palpite';
 import { Utils } from '../../services/utils';
@@ -24,12 +24,22 @@ export class JogosPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
+    public alertCtrl: AlertController,
     private jogosWsProvider: JogosWsProvider) {
   }
 
   public showModalPalpite(jogo: Jogo): void {
-    let modal = this.modalCtrl.create(PalpitePage, {jogoSelecionado: jogo});
-    modal.present();
+    if (jogo.getPontos() == null) {
+      let modal = this.modalCtrl.create(PalpitePage, {jogoSelecionado: jogo});
+      modal.present();
+    } else {
+      let alert = this.alertCtrl.create({
+        title: 'Fim de Jogo!',
+        subTitle: 'Você marcou ' + jogo.getPontos() + ' pontos neste confronto!',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
   }
 
   private loadJogos(): void {
