@@ -19,12 +19,15 @@ export class ClassificacaoPage {
     private classificacaoWsProvider: ClassificacaoWsProvider) {
   }
 
-  private getClassificacao(): void {
+  private getClassificacao(refresher: any): void {
     this.classificacaoWsProvider.getClassificacaoFromWS().subscribe (
       data => {
           const response = (data as any);
           const objeto_retorno = JSON.parse(response._body);
           this.classificacoes = this.parseJsonToObj(objeto_retorno.results);
+          if (refresher != null) {
+            refresher.complete();
+          }
       }, error => {
           console.log(error);
       }
@@ -60,7 +63,10 @@ export class ClassificacaoPage {
   }
 
   ionViewDidLoad() {
-    this.getClassificacao();
+    this.getClassificacao(null);
   }
 
+  doRefresh(refresher) {
+    this.getClassificacao(refresher);
+  }
 }

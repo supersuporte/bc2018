@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-item-group>
     <div *ngFor="let jogo of getJogos()">
 
@@ -12,11 +15,14 @@
         <ion-item-divider color="light" class="fase">{{ jogo.getFase().getDescricao() }}</ion-item-divider>
       </div>
 
-      <div *ngIf="(isDataRendered(jogo, getJogoAnterior()))" >
+      <div *ngIf="(isDataRendered(jogo, getJogoAnterior()))" id="{{ jogo.getData() }}">
         <ion-item-divider color="light" class="data">{{ jogo.getData() + " - " + jogo.getDia() }}</ion-item-divider>
       </div>
 
       <a ion-item class="confronto" (click)="showModalPalpite(jogo)">
+        <div *ngIf="(isJogoEmAndamento(jogo))">
+          <div class="fundo-destaque"></div>
+        </div>
         <div class="full {{ getBorderClass(jogo, getJogoAnterior()) }}">
           <div class="local">{{ jogo.getHora() + " " + jogo.getCidade().getDescricao() }}</div>
           <div class="versus">X</div>

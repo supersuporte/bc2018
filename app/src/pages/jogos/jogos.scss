@@ -15,6 +15,13 @@ page-jogos {
     text-align: center;
     padding: 0px;
   }
+  .confronto-destaque {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    padding: 0px;
+    background-color: red;
+  }
   .confronto .full {
     position: relative;
     top: 0px;
@@ -158,5 +165,11 @@ page-jogos {
   }
   .border {
     border-top: solid #c8c7cc 1px;
+  }
+  .fundo-destaque {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    background-color: #fff18f;
   }
 }

@@ -1,3 +1,4 @@
+import { Utils } from '../services/utils';
 import { Jogo } from '../models/jogo';
 import { Fase } from '../models/fase';
 import { Cidade } from '../models/cidade';
@@ -5,6 +6,27 @@ import { Equipe } from '../models/equipe';
 import { Adversario } from '../models/adversario';
 
 export class JogoService {
+
+  private utils = new Utils();
+
+  public isJogoEmAndamento(jogo: Jogo): boolean {
+    let hoje = this.utils.getHoje();
+    let dataDoJogo = this.utils.getDataCompleta(jogo);
+
+    if (hoje >= dataDoJogo && jogo.getPontos() == null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public isJogoEncerrado(jogo: Jogo): boolean {
+    if (jogo.getPontos() != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   public parseJsonToObj(json: any): Array<Jogo> {
     let jogos = new Array<Jogo>();
